@@ -1,0 +1,28 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "tsc -p .",
+        "type-check": "tsc --noEmit",
+        "dev": "env-cmd -f .env tsx watch src/index.ts",
+        "lint": "eslint --fix --cache --ext .ts,.tsx src",
+        "prisma-studio": "env-cmd -f .env prisma studio",
+        "db:migration:generate": "env-cmd -f .env prisma migrate dev --create-only",
+        "db:migration:run": "env-cmd -f .env prisma migrate dev",
+        "postinstall": "prisma generate"
+    },
+    "dependencies": {
+        "@prisma/client": "^4.15.0",
+        "fastify": "^4.17.0",
+        "zod": "^3.21.4"
+    },
+    "devDependencies": {
+        "@types/node": "^20.2.5",
+        "config": "workspace:^",
+        "env-cmd": "^10.1.0",
+        "prettier": "^2.8.8",
+        "prisma": "^4.14.1",
+        "tsx": "^3.12.7",
+        "typescript": "^5.1.3"
+    }
+}
